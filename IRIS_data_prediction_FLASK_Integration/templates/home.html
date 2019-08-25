@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IRIS DATA PREDICTION FLASK</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<!-- #6798B3 -->
+<body style="background-color:#D9E4EA;">
+<div style="margin-top: 50px; margin-bottom: 50px; font-size: 50px;text-transform: uppercase;">
+	<center>
+		Prediction Iris dataset
+	</center>
+	<center class='text-success'><h5>Model Predcition:- Over 92% accuracy</h5></center>
+</div>
+
+
+<div class="container">
+	<form action={{ url_for("predict") }} method="post">
+		<div class="form-group">
+			<center>
+			<input type="text" style="width: 50% !important;" class="form-control " name="sepal length in cm" placeholder="Sepal Length in (CM)" required="true">
+			<hr>
+			<input type="text" style="width: 50% !important;" class="form-control" name="seapal width in cm" placeholder="Sepal Width in (CM)" required="true">
+			<hr>
+			<input type="text" style="width: 50% !important;" class="form-control" name="petal length in cm" placeholder="Petal Length in (CM)" required="true">
+			<hr>
+			<input type="text" style="width: 50% !important;" class="form-control" name="petal width in cm" placeholder="Petal Width in (CM)" required="true">
+			<hr>
+			<button style="width: 50%; height: 50px;" type="submit" value="predict" class="btn btn-success">Predict</button>
+			</center>
+		</div>
+	</form>
+
+	<br>
+<div class="container">
+	<center>
+		<!-- {{ prediction_text }} -->
+		{% if prediction_text == 0 %}
+		<h2>Iris-setosa</h2>
+		
+		{% elif prediction_text == 1 %}
+		<h2>Iris Versicolour</h2>
+		
+		{% elif prediction_text == 2 %}
+		<h2>Iris Virginica</h2>
+		
+		{% endif %}
+	</center>
+	
+</div>
+
+<footer style="margin-top: 50px;">
+	<CENTER>Himanshu Tripathi</CENTER>
+</footer>
+</div>
+
+</body>
+</html>
